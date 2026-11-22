@@ -1,0 +1,55 @@
+{
+  "experiment_id": "experiment_001",
+  "configuration_id": "baseline_001",
+  "status": "design_draft",
+  "environment": {
+    "width": 20,
+    "height": 20,
+    "terrain_types": ["grass", "forest", "rock", "water", "open"],
+    "initial_resource_distribution": "to_be_defined",
+    "resource_depletion_rules": "to_be_defined",
+    "resource_regeneration_rules": "to_be_defined"
+  },
+  "time": {
+    "ticks_per_day": 100,
+    "maximum_days": 100,
+    "maximum_ticks_per_episode": 10000,
+    "one_action_decision_per_tick": true
+  },
+  "agent": {
+    "starting_energy": 100,
+    "maximum_energy": 100,
+    "starting_hunger": 0,
+    "maximum_hunger": 100,
+    "starting_inventory": {},
+    "initial_actions": ["LOOK", "MOVE", "PICK_UP", "DROP", "USE", "WAIT"]
+  },
+  "learning": {
+    "algorithm": "tabular_q_learning",
+    "model_free": true,
+    "learning_rate": "to_be_defined",
+    "discount_factor": "to_be_defined",
+    "state_schema": "to_be_defined",
+    "action_selection_policy": "to_be_defined",
+    "exploration_parameters": "to_be_defined"
+  },
+  "reward": {
+    "scheme": "survival_duration_terminal_reward",
+    "per_action_reward": false,
+    "terminal_formula": "to_be_defined",
+    "survival_weight": "to_be_defined",
+    "final_energy_weight": "to_be_defined",
+    "final_hunger_weight": "to_be_defined"
+  },
+  "episode": {
+    "preserve_q_table_between_episodes": true,
+    "reset_agent_body_between_episodes": true,
+    "reset_environment_between_episodes": true,
+    "random_seed": "record_per_run"
+  },
+  "reporting": {
+    "episode_report": ["txt", "json", "csv"],
+    "master_report": ["txt", "json", "csv"],
+    "preserve_raw_event_log": true
+  }
+}
